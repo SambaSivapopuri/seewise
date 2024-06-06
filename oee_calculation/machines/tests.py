@@ -11,11 +11,11 @@ class OEECalculationTestCase(TestCase):
         self.client = APIClient()
 
     def test_get_oee(self):
-        response = self.client.get('/api/oee/')
+        response = self.client.get('/oee/')
         self.assertEqual(response.status_code, 200)
         self.assertIn('oee', response.data)
 
     def test_filter_oee(self):
-        response = self.client.get(f'/api/oee/filter/?machine_id={self.machine.id}')
+        response = self.client.get(f'/oee/filter/?machine_id={self.machine.id}')
         self.assertEqual(response.status_code, 200)
         self.assertIn('oee', response.data)
